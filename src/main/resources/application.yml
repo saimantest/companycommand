@@ -1,0 +1,19 @@
+server:
+  port: 5000
+
+spring:
+  application:    name: company-command
+  data:    mongodb:      #host: localhost
+      #port: 27017
+      uri: mongodb+srv://estock-market-admin-user:@estockmarket.qwgu1.mongodb.net/estockmarket?retryWrites=true&w=majority
+      database: estockmarket
+  
+  kafka:   producer:      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'      
